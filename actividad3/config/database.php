@@ -2,11 +2,12 @@
 
 class Database {
     private $host    = "localhost";
-    private $db_name  ="bd.libros";
+    private $db_name  ="bd-libros";
     private $username ="root";
     private $password = "";
 
     public $conn;
+    
 
     public function conectar(){
         $this->conn=null;
