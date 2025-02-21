@@ -1,23 +1,23 @@
 <?php
-require once _DIR__.'../models/Autor.php';
-require once _DIR__.'/../repositories/AutorRepository.php';
+require_once __DIR__ .'../models/Autor.php';
+require_once __DIR__ .'/../repositories/AutorRepository.php';
 
 
 
 class AutorService{
     private $autorRepository;
 
-    public function_construct($db){
+    public function __construct($db){
         $this->autorRepository=new AutorRepository($db);
     }
 
     public function getAll(){
         $stmt = $this->autorRepository->readAll();
-        $resul =[];
-        while ($row =  $stmt->fetch(PDO::FECTH_ASSOC)){//dice se convierat un arreglo asociativo
-          $resul[]=$row;
+        $result =[];
+        while ($row =  $stmt->fetch(PDO::FETCH_ASSOC)){//dice se convierat un arreglo asociativo
+          $result[]=$row;
         }
-        return $resul;
+        return $result;
     }
 
     public function getById($id){
@@ -28,15 +28,19 @@ class AutorService{
     public function create($data){
         $autor = new Autor();
         $autor->setNombre($data->nombre);
-        $autor->setDescripcion($data->desscripcion);
+        $autor->setApellido($data->apellido);
+        $autor->setNacionalidad($data->nacionalidad);
+        $autor->setFechaNacimiento($data->fecha_nacimiento);
         return $this->autorRepository->create($autor);
     }
 
     public function update ($data){
         $autor = new Autor();
-        $autor->setNombre($data->nombre);
-        $autor->setDescripcion($data->desscripcion);
         $autor->setId($data->id);
+        $autor->setNombre($data->nombre);
+        $autor->setApellido($data->apellido);
+        $autor->setNacionalidad($data->nacionalidad);
+        $autor->setFechaNacimiento($data->fecha_nacimiento);
         return $this->autorRepository->update($autor);
     }
 

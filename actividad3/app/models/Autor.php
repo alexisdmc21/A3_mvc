@@ -2,24 +2,22 @@
   class Autor{
     private $id;
     private $nombre;
-    private $descripcion;
-
-    public function_construct($id, $nombre, $description) {
-      $this ->id =$id;
-      $this ->nombre = $nombre;
-      $this ->descripcion = $descripcion;
-    }
+    private $apellido;
+    private $nacionalidad;
+    private $fechaNacimiento;
 
     //constructor
 
-    public function_construct($nombre=null, $descripcion=null){
+    public function __construct($nombre=null, $apellido=null, $nacionalidad=null, $fechaNacimiento=null){
       $this->nombre = $nombre;
-      $this->descripcion = $descripcion;
+      $this->apellido = $apellido;
+      $this->nacionalidad = $nacionalidad;
+      $this->fechaNacimiento = $fechaNacimiento;
     }
 
     //get y set
     public function getId(){
-      return $this->$id;
+      return $this->id;
     }
 
     public function setId($id){
@@ -27,24 +25,36 @@
     }
 
     public function getNombre(){
-      return $this->$nombre;
+      return $this->nombre;
     }
 
-    public function setNombre($id){
+    public function setNombre($nombre){
       $this->nombre =$nombre;
     }
 
 
-    public function getDescripcion(){
-      return $this->$descripcion;
+    public function getApellido(){
+      return $this->apellido;
     }
 
-    public function setDescripcion($id){
-      $this->descripcion =$descripcion;
+    public function setApellido($apellido){
+      $this->apellido =$apellido;
     }
 
+    public function getNacionalidad(){
+      return $this->nacionalidad;
+    }
 
-    
+    public function setNacionalidad($nacionalidad){
+      $this->nacionalidad =$nacionalidad;
+    }
 
+    public function getFechaNacimiento(){
+      return $this->fechaNacimiento;
+    }
+
+    public function setFechaNacimiento($fechaNacimiento){
+      $this->fechaNacimiento =$fechaNacimiento;
+    }
   }
 ?>
